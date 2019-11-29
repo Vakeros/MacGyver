@@ -7,14 +7,14 @@ pygame.display.init()
 
 size = width, height = 20*15, 20*15
 screen = pygame.display.set_mode(size)
-SceneManager.loadScene(0)  # load main game
+sceneManager.loadScene(1)  # load main game
 clock = pygame.time.Clock()
 
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
-        if event.type == pygame.KEYDOWN:
+        if event.type == pygame.KEYDOWN and sceneManager.currentScene == 0:
             if event.key == pygame.K_DOWN:
                 game.player.setPosition("DOWN")
             if event.key == pygame.K_UP:
@@ -24,7 +24,7 @@ while True:
             if event.key == pygame.K_RIGHT:
                 game.player.setPosition("RIGHT")
     screen.fill((0, 0, 0))
-    SceneManager.update(screen)
+    sceneManager.update(screen)
     pygame.display.flip()
     clock.tick(60)
 

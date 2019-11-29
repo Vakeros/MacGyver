@@ -6,7 +6,6 @@ from world import *
 
 class items:
     list = []
-    count = 0
     sprite = pygame.image.load('MacGyver.png')
 
     def __init__(self, position):
@@ -18,6 +17,10 @@ class items:
         items.count = 10;
         random.seed(datetime.now())
         items.generateItems()
+
+    @staticmethod
+    def unload():
+        items.list = []
 
     @staticmethod
     def generateItems():

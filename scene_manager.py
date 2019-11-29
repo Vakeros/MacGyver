@@ -1,15 +1,15 @@
 from game import *
-
-
-class SceneManager:
-    scenes = [game]
+from menu import menu
+class sceneManager:
+    scenes = [game,menu]
     currentScene = 0
     @staticmethod
     def loadScene(Pid):
-        SceneManager.scenes[SceneManager.currentScene].unload()
-        SceneManager.currentScene = Pid
-        SceneManager.scenes[SceneManager.currentScene].init()
+        sceneManager.scenes[sceneManager.currentScene].unload()
+        sceneManager.currentScene = Pid
+        sceneManager.scenes[sceneManager.currentScene].init()
 
     @staticmethod
     def update(screen):
-        SceneManager.scenes[SceneManager.currentScene].update(screen)
+        sceneManager.scenes[sceneManager.currentScene].update(screen)
+
