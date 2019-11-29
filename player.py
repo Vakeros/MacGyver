@@ -9,28 +9,36 @@ class Player:
         self.Y = 0
         self.caseX = 0
         self.caseY = 0
+        self.inventory = 0
         print("init player")
 
+    # set position and check collider
     def setPosition(self, direction):
         if direction == "DOWN":
-            if world.lvl[self.caseY+1][self.caseX] == "0":
+            if not world.isSolid(world.getSpriteAt(self.caseX, self.caseY+1)):
                 self.caseY += 1
                 self.Y += 20
         elif direction == "UP":
-            if world.lvl[self.caseY-1][self.caseX] == "0":
+            if not world.isSolid(world.getSpriteAt(self.caseX, self.caseY-1)):
                 self.caseY -= 1
                 self.Y -= 20
         elif direction == "LEFT":
-            if world.lvl[self.caseY][self.caseX-1] == "0":
+            if not world.isSolid(world.getSpriteAt(self.caseX-1, self.caseY)):
                 self.caseX -= 1
                 self.X -= 20
         elif direction == "RIGHT":
-            if world.lvl[self.caseY][self.caseX+1] == "0":
+            if not world.isSolid(world.getSpriteAt(self.caseX+1, self.caseY)):
                 self.caseX += 1
                 self.X += 20
 
     def getPosition(self):
         return (self.X, self.Y)
 
+    def getPositionCase(self):
+        return (self.caseX, self.caseY)
+
     def getSpeed(self):
         return self.speed
+
+    def pickUpItem(self):
+        self.inventory += 1

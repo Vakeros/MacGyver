@@ -4,7 +4,8 @@ from scene_manager import *
 from pygame.locals import *
 pygame.init()
 pygame.display.init()
-size = width, height = 800, 600
+
+size = width, height = 20*15, 20*15
 screen = pygame.display.set_mode(size)
 SceneManager.loadScene(0)  # load main game
 clock = pygame.time.Clock()
