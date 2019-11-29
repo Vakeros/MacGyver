@@ -7,7 +7,7 @@ class SceneManager:
     @staticmethod
     def loadScene(Pid):
         SceneManager.scenes[SceneManager.currentScene].unload()
-        SceneManager.currentScene = SceneManager.scenes[Pid]
+        SceneManager.currentScene = Pid
         SceneManager.scenes[SceneManager.currentScene].init()
 
     @staticmethod
