@@ -1,34 +1,36 @@
 
+
 import pygame
+
+
 class world:
     lvl = []
     nbCul = 20
     nbLines = 20
     Textures = []
-    solidSprite = [1, 2, 3]
+    solidSprite = [2, 3, 4]
 
     @staticmethod
     def load():
-        texture = pygame.image.load("tiles.png").convert()
         with open("lvl1.md", "r") as file:
             for line in file:
                 Tline = []
+                line = line.split(",")
                 for id in line:
                     if id != '\n':
                         Tline.append(id)
                 world.lvl.append(Tline)
-        world.Textures = world.load_tile_table("tiles.png", 20, 20)
+        world.Textures = world.loadTextures()
 
     @staticmethod
-    def load_tile_table(filename, width, height):
-        image = pygame.image.load(filename).convert()
-        image_width, image_height = image.get_size()
-        for tile_x in range(0, round(image_width / width)):
+    def loadTextures():
+        image = pygame.image.load("tiles.png").convert()
+        for y in range(13):
             line = []
-            for tile_y in range(0, round(image_height / height)):
-                rect = (tile_x * width, tile_y * height, width, height)
+            for x in range(20):
+                rect = (x * 20, y * 20, 20, 20)
                 line.append(image.subsurface(rect))
-        return line
+            return line
 
     @staticmethod
     def update(screen):
@@ -38,6 +40,7 @@ class world:
                 if k != "G":
                     screen.blit(world.Textures[int(k)], (x, y))
                 else:
+                    screen.blit(world.Textures[1], (x, y))
                     screen.blit(pygame.transform.scale(pygame.image.load('Gardien.png'), (20, 20)), (x, y))
                 x += 20
             y += 20

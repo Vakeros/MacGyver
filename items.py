@@ -27,10 +27,10 @@ class items:
         possiblePosition = []
         for i in range(items.count):
             x, y = 0, 0
-            for k in world.getLvl():
+            for j in world.getLvl():
                 x = 0
-                for j in k:
-                    if not world.isSolid(j):
+                for k in j:
+                    if not world.isSolid(k):
                         possiblePosition.append((x, y))
                     x += 1
                 y += 1
