@@ -25,12 +25,12 @@ class world:
     @staticmethod
     def loadTextures():
         image = pygame.image.load("tiles.png").convert()
+        line = []
         for y in range(13):
-            line = []
             for x in range(20):
                 rect = (x * 20, y * 20, 20, 20)
                 line.append(image.subsurface(rect))
-            return line
+        return line
 
     @staticmethod
     def update(screen):
