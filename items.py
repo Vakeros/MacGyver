@@ -6,7 +6,7 @@ from world import *
 
 class items:
     list = []
-    sprite = pygame.image.load('MacGyver.png')
+    sprite = pygame.image.load('aiguille.png')
 
     def __init__(self, position):
         self.position = position
@@ -14,16 +14,17 @@ class items:
 
     @staticmethod
     def init():
-        items.count = 10;
+        items.count = 10
         random.seed(datetime.now())
         items.generateItems()
 
     @staticmethod
     def unload():
-        items.list = []
+        items.list.clear()
 
     @staticmethod
     def generateItems():
+        items.list = []
         possiblePosition = []
         for i in range(items.count):
             x, y = 0, 0
@@ -38,7 +39,6 @@ class items:
             rng = random.randrange(0, len(possiblePosition))
             items.list.append(items(possiblePosition[rng]))
             possiblePosition.pop(rng)
-
     # check if player is in item position
     @staticmethod
     def pickItemAt(pos):

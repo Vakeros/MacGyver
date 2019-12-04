@@ -2,7 +2,7 @@ from player import *
 import scene_manager as sm
 from world import *
 from items import *
-
+from gameOver import over
 
 class game:
     @staticmethod
@@ -10,7 +10,6 @@ class game:
         print("init")
         game.player = Player()
         world.load()
-        items.unload()
         items.init()
 
     @staticmethod
@@ -24,9 +23,11 @@ class game:
             game.player.pickUpItem()
         if world.getSpriteAt(game.player.getPositionCase()[0], game.player.getPositionCase()[1]) == "G":
             if items.count == game.player.inventory:
-                sm.sceneManager.loadScene(1)
+                sm.sceneManager.loadScene(2)
+                over.setText("Vous avez gagnez")
             else:
-                print("missing items")
+                sm.sceneManager.loadScene(2)
+                over.setText("GameOVer vous n'avez récupéré les items")
         # player control"
         """
         if allKeys[pygame.K_LEFT]:
@@ -41,4 +42,5 @@ class game:
 
     @staticmethod
     def unload():
+        items.unload()
         print("unload")

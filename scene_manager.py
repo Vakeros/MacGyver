@@ -1,7 +1,8 @@
 from game import *
 from menu import menu
+from gameOver import over
 class sceneManager:
-    scenes = [game,menu]
+    scenes = [game, menu, over]
     currentScene = 0
     @staticmethod
     def loadScene(Pid):

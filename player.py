@@ -14,7 +14,6 @@ class Player:
 
     # set position and check collider
     def setPosition(self, direction):
-        print("set")
         if direction == "DOWN":
             if not world.isSolid(world.getSpriteAt(self.caseX, self.caseY+1)):
                 self.caseY += 1

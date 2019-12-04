@@ -12,7 +12,7 @@ class world:
 
     @staticmethod
     def load():
-        with open("lvl1.md", "r") as file:
+        with open("lvl1.txt", "r") as file:
             for line in file:
                 Tline = []
                 line = line.split(",")
