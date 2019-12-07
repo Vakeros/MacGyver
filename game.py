@@ -4,6 +4,7 @@ from world import *
 from items import *
 from gameOver import over
 
+
 class game:
     @staticmethod
     def init():
@@ -19,6 +20,9 @@ class game:
         events = pygame.event.get()
         screen.blit(game.player.sprite, game.player.getPosition())
         allKeys = pygame.key.get_pressed()
+        font = pygame.font.SysFont("comicsansms", 12)
+        screen.blit(font.render("{} items sur {} .".format(game.player.inventory, items.count),
+                                True, (0, 0, 0)), (200, 1))
         if items.pickItemAt(game.player.getPositionCase()):
             game.player.pickUpItem()
         if world.getSpriteAt(game.player.getPositionCase()[0], game.player.getPositionCase()[1]) == "G":
@@ -27,7 +31,7 @@ class game:
                 over.setText("Vous avez gagnez")
             else:
                 sm.sceneManager.loadScene(2)
-                over.setText("GameOVer vous n'avez récupéré les items")
+                over.setText("GameOver vous n'avez récupéré les items")
         # player control"
         """
         if allKeys[pygame.K_LEFT]:
