@@ -1,4 +1,4 @@
-"""grgeds"""
+"""main"""
 import sys
 import pygame
 from classes.scene_manager import SceneManager
@@ -28,3 +28,4 @@ while True:
     SceneManager.update(SCREEN)
     pygame.display.flip()
     CLOCK.tick(60)
+
