@@ -2,7 +2,7 @@
 import pygame
 from classes.player import Player
 from classes.items import Items
-#from classes.scene_manager import SceneManager
+from classes import scene_manager as sm
 from classes.world import World
 from classes.game_over import Over
 
@@ -30,10 +30,10 @@ class Game:
         if World.get_sprite_at(Game.player.get_position_case()[0],
                              Game.player.get_position_case()[1]) == "G":
             if Items.count == Game.player.inventory:
-                #SceneManager.load_scene(2)
+                sm.SceneManager.load_scene(2)
                 Over.set_text("Vous avez gagnez")
             else:
-                #SceneManager.load_scene(2)
+                sm.SceneManager.load_scene(2)
                 Over.set_text("GameOver vous n'avez pas récupéré les Items")
 
     @staticmethod
