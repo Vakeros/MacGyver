@@ -1,6 +1,6 @@
 # MacGyver
 
-pickup all items and find the exit
+Pickup all items and find the exit
 
 ## Getting Started
 
