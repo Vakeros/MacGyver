@@ -27,9 +27,4 @@ Pygame lasted version
 
 * **Jason Defer**
 
-## License
-
-no license
-
-## Acknowledgments
 
