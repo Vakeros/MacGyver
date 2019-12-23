@@ -5,7 +5,6 @@ from classes import scene_manager as sm
 
 class Menu:
     """menu"""
-    @staticmethod
     def init():
         """init"""
         Menu.font = pygame.font.SysFont("comicsansms", 12)

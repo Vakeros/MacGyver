@@ -6,8 +6,10 @@ from classes.game_over import Over
 
 class SceneManager:
     """sceneManager"""
-    scenes = [Game, Menu, Over]
-    currentScene = 0
+    @staticmethod
+    def init():
+        SceneManager.scenes = [Game, Menu, Over]
+        SceneManager.currentScene = 0
 
     @staticmethod
     def load_scene(pid):

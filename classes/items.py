@@ -8,7 +8,11 @@ from classes.world import World
 class Items:
     """Items"""
     list = []
-    sprite = pygame.image.load('ressources/textures/aiguille.png')
+    sprite = [
+                pygame.image.load('ressources/textures/aiguille.png'),
+                pygame.image.load('ressources/textures/seringue.png'),
+                pygame.image.load('ressources/textures/ether.png')
+             ]
 
     def __init__(self, position):
         self.position = position
@@ -17,7 +21,7 @@ class Items:
     @staticmethod
     def init():
         """init"""
-        Items.count = 10
+        Items.count = 3
         random.seed(datetime.now())
         Items.generate_items()
 
@@ -44,6 +48,7 @@ class Items:
             rng = random.randrange(0, len(possible_position))
             Items.list.append(Items(possible_position[rng]))
             possible_position.pop(rng)
+
     # check if player is in item position
     @staticmethod
     def pick_item_at(pos):
@@ -60,5 +65,5 @@ class Items:
         """update"""
         for i in range(len(Items.list)):
             if Items.list[i].in_world:
-                screen.blit(pygame.transform.scale(Items.sprite, (20, 20)),
+                screen.blit(pygame.transform.scale(Items.sprite[i], (20, 20)),
                             (Items.list[i].position[0]*20, Items.list[i].position[1]*20))
