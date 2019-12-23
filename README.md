@@ -21,7 +21,7 @@ What things you need to install the software and how to install them
 
 5 On pycharm terminal write "pip install pygame" and press enter
 
-6 Wait the end of installation
+6 Wait until the end of installation
 
 7 Open main.py and press ctrl + maj + f10 to launch the game or right click and press "Run 'main' "
 
