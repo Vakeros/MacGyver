@@ -11,8 +11,20 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-Python 3.7
-Pygame lasted version
+1 Download and install Python 3.7
+
+2 Download and install pycharm
+
+3 Open pycharm and create a new project (File/new projet) and select "new environment using VirtualEnv"
+
+4 Past all files in your project folder
+
+5 On pycharm terminal write "pip install pygame" and press enter
+
+6 Wait the end of installation
+
+7 Open main.py and press ctrl + maj + f10 to launch the game or right click and press "Run 'main' "
+
 ```
 
 ## Versioning
